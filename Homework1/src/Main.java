@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        /*Box box = new Box();
+        Box box = new Box();
         Store store = new Store();
         Thread iceMan1 = new Thread(new IceCreamMan(box,store));
         Thread iceMan2 = new Thread(new IceCreamMan(box,store));
@@ -14,10 +14,9 @@ public class Main {
         iceMan1.start();
         iceMan2.start();
         iceMan1.join();
-        iceMan2.join();*/
+        iceMan2.join();
 
         ExecutorService iceCreamManExecutors = Executors.newFixedThreadPool(5);
-        ExecutorService storekeeperExecutors = Executors.newFixedThreadPool(2);
         Box boxForExecutors = new Box();
         Store storeForExecutor = new Store();
         for (int i = 0; i < 5; i++) {
@@ -28,7 +27,6 @@ public class Main {
         storekeeper.start();
             System.out.println("Кладовщик заступил на смену");
             iceCreamManExecutors.shutdown();
-            storekeeperExecutors.shutdown();
 
         }
 
